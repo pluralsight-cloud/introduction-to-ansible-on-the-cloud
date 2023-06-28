@@ -2,7 +2,6 @@
   hosts: all
   become: true
   tasks:
-
     - name: Install Nginx
       yum:
         name: nginx
@@ -17,3 +16,13 @@
     - name: Display Nginx server IP
       debug:
         var: ansible_default_ipv4.address
+
+    - name: Verify Nginx deployment
+      uri:
+        url: "http://{{ ansible_default_ipv4.address }}"
+        return_content: yes
+      register: response
+
+    - name: Show Nginx landing page
+      debug:
+        var: response.content
