@@ -1,5 +1,5 @@
 - name: Deploy Nginx
-  hosts: all
+  hosts: localhost
   become: true
   tasks:
     - name: Install Nginx
