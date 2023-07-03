@@ -1,0 +1,19 @@
+- name: Provision EC2 Instance
+  hosts: localhost
+  gather_facts: false
+  vars_files:
+    - keys.yml
+  tasks:
+    - name: Create EC2 Instance
+      ec2:
+        aws_access_key: "{{ AWS_ACCESS_KEY_ID }}"
+        aws_secret_key: "{{ AWS_SECRET_ACCESS_KEY }}"
+        region: "{{ AWS_REGION }}"
+        key_name: ansible
+        instance_type: t2.micro
+        image: ami-026ebd4cfe2c043b2
+        group: default
+        wait: true
+        assign_public_ip: yes
+        count: 1
+        vpc_subnet_id: subnet-xxxxxxxxxxxxxxx
