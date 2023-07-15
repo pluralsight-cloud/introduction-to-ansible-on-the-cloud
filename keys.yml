@@ -1,3 +1,5 @@
+# Make sure to replace the "xxxxxxxxxx" values with information from your environment
+
 AWS_ACCESS_KEY_ID: XXXXXXXXXXXXXXXXXXXX
 AWS_SECRET_ACCESS_KEY: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 AWS_REGION: us-east-1
